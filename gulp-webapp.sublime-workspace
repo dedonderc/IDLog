@@ -1,0 +1,350 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getElementsByTagName"
+			],
+			[
+				"opened",
+				"openedWindow"
+			],
+			[
+				"dot",
+				"dotComList"
+			],
+			[
+				"dotCom",
+				"DotCom"
+			],
+			[
+				"dotco",
+				"DotCom"
+			],
+			[
+				"im",
+				"import"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!doctype html>\n<html class=\"no-js\" lang=\"\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"description\" content=\"\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <title>webapp</title>\n        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->\n        <!-- build:css styles/vendor.css -->\n        <!-- bower:css -->\n        <!-- endbower -->\n        <!-- endbuild -->\n        <!-- build:css styles/main.css -->\n        <link rel=\"stylesheet\" href=\"/app/styles/main.css\">\n        <!-- endbuild -->\n        <!-- build:js scripts/vendor/modernizr.js -->\n        <script src=\"/bower_components/modernizr/modernizr.js\"></script>\n        <!-- endbuild -->\n    </head>\n    <body>\n        <!--[if lt IE 10]>\n            <p class=\"browserupgrade\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience.</p>\n        <![endif]-->\n        <div class=\"container\">\n            <div id=\"applet\"></div>\n\n                </div>\n                <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n                <script>\n                    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n                    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n                    e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n                    e.src='//www.google-analytics.com/analytics.js';\n                    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n                    ga('create','UA-XXXXX-X');ga('send','pageview');\n                </script>\n                <!-- build:js scripts/vendor.js -->\n                <!-- bower:js -->\n                <script src=\"/bower_components/jquery/dist/jquery.js\"></script>\n                <!-- endbower -->\n                <!-- endbuild -->\n                <!-- build:js scripts/plugins.js -->\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js\"></script>\n                <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js\"></script>\n                <!-- endbuild -->\n                <!-- build:js scripts/main.js -->\n                <script src=\"/app/scripts/main.js\"></script>\n                <!-- endbuild -->\n                <script src=\"/app/scripts/deployJava_mod.js\"></script>\n\n                <script type=\"text/javascript\">\n\n                    \n               \n                    \n              /*  $(\"#btnReadId\").on('click', function(){*/\n                    function docWriteWrapper(func) {\n                        var writeTo = document.createElement('del'),\n                            oldwrite = document.write,\n                            content = '';\n                        writeTo.id = \"me\";\n                        document.write = function(text) {\n                            content += text;\n                        }\n                        func();\n                        writeTo.innerHTML += content;\n                        document.write = oldwrite;\n                        document.body.appendChild(writeTo);\n                    }\n                    docWriteWrapper(function () {\n                        var attributes = {\n                            code :'be.fedict.eid.applet.Applet.class',\n                            archive :'/eid/lib/eid-applet-package-1.1.3.jar',\n                            width :400,\n                            height :300\n                            };\n                        var parameters = {\n                            TargetPage :'eid_response.jsp',\n                            AppletService : 'applet-service',\n                            BackgroundColor : '#ffffff'\n                            };\n                        var version = '1.6';\n                        deployJava.runApplet(attributes, parameters, \"1.6\");\n                    });\n\n           /*     });*/\n                var eidData = {\n                    name : \"${sessionScope.eid.name}\"\n                };\n\n                if (eidData.name != \"${sessionScope.eid.name}\"){\n\n                    getElementByID(\"btnNaam\").value = eidData.naam;\n                }\n                </script>\n            </body>\n        </html>",
+			"file": "eid.html",
+			"file_size": 8128,
+			"file_write_time": 130759293684529845,
+			"settings":
+			{
+				"buffer_size": 5548,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<!doctype html>\n<html class=\"no-js\" lang=\"\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"description\" content=\"\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <title>webapp</title>\n        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->\n        <!-- build:css styles/vendor.css -->\n        <!-- bower:css -->\n        <!-- endbower -->\n        <!-- endbuild -->\n        <!-- build:css styles/main.css -->\n        <link rel=\"stylesheet\" href=\"styles/main.css\">\n        <style>\n          html, body, #map-canvas {\n            height: 100%;\n            margin: 0px;\n            padding: 0px\n          }\n        </style>\n        <!-- endbuild -->\n        <!-- build:js scripts/vendor/modernizr.js -->\n        <script src=\"/bower_components/modernizr/modernizr.js\"></script>\n        <!-- endbuild -->\n    </head>\n    <body>\n        <!--[if lt IE 10]>\n            <p class=\"browserupgrade\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience.</p>\n        <![endif]-->\n        <div class=\"container\">\n            <nav class=\"navbar navbar-default\">\n                <div class=\"container-fluid\">\n                <!-- Brand and toggle get grouped for better mobile display -->\n                    <div class=\"navbar-header\">\n                        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                        <span class=\"sr-only\">Toggle navigation</span>\n                        <span class=\"icon-bar\"></span>\n                        <span class=\"icon-bar\"></span>\n                        <span class=\"icon-bar\"></span>\n                        </button>\n                        <a class=\"navbar-brand\" href=\"#\">Brand</a>\n                    </div>\n                    <!-- Collect the nav links, forms, and other content for toggling -->\n                    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                        <ul class=\"nav navbar-nav\">\n                            <li><a href=\"index.html\">Home</a></li>\n                            <li><a href=\"input.html\">input</a></li>\n                            <li><a href=\"eid_input.html\">input</a></li>\n                        </ul>\n                        <form class=\"navbar-form navbar-left\" role=\"search\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n                            </div>\n                            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n                        </form>\n                        <ul class=\"nav navbar-nav\">\n                            <li><a href=\"login.html\">login/logout</a></li>\n                        </ul>\n                    </div><!-- /.navbar-collapse -->\n                </div><!-- /.container-fluid -->\n            </nav>\n            <div class=\"jumbotron\">\n                <div class=\"\">\n                   <img class=\"center-block img-circle\" alt=\"140x140\" src=\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+\" data-holder-rendered=\"true\" style=\"width: 140px; height: 140px;\">\n                </div>\n            </div>\n            <div class=\"row\">\n                <form role=\"form\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-sm-4 col-md-4\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"firstName\" id=\"firstName\" class=\"form-control input-sm\" placeholder=\"First Name\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-4 col-md-4\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"middleName\" id=\"middleName\" class=\"form-control input-sm\" placeholder=\"Middle Name\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-4 col-md-4\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control input-sm\" placeholder=\"Last Name\">\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"form-group\">\n                        <input type=\"email\" name=\"email\" id=\"email\" class=\"form-control input-sm\" placeholder=\"Email Address\">\n                    </div>\n                    <div class=\"form-group\">\n                        <input type=\"email\" name=\"nationality\" id=\"nationality\" class=\"form-control input-sm\" placeholder=\"Nationality\">\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"nationalNumber\" id=\"nationalNumber\" class=\"form-control input-sm\" placeholder=\"National number\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"cardNumber\" id=\"cardNumber\" class=\"form-control input-sm\" placeholder=\"Card number\">\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"placeOfBirth\" id=\"placeOfBirth\" class=\"form-control input-sm\" placeholder=\"Place of birth\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"dateOfBirth\" id=\"dateOfBirth\" class=\"form-control input-sm\" placeholder=\"Date of birth\">\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-sm-4 col-md-4\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"streetAndNumber\" id=\"streetAndNumber\" class=\"form-control input-sm\" placeholder=\"Street and number\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-4 col-md-4\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"zip\" id=\"zip\" class=\"form-control input-sm\" placeholder=\"Zip code\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-4 col-md-4\">\n                            <div class=\"form-group\">\n                                <input type=\"text\" name=\"municipality\" id=\"municipality\" class=\"form-control input-sm\" placeholder=\"Municipality\">\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input disabled=\"true\" type=\"text\" name=\"cardValidityDateBegin\" id=\"cardValidityDateBegin\" class=\"form-control input-sm\" placeholder=\"Card validity begin date\">\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input disabled=\"true\" type=\"text\" name=\"cardValidityDateEnd\" id=\"cardValidityDateEnd\" class=\"form-control input-sm\" placeholder=\"Card validity end date\">\n                            </div>\n                        </div>\n                    </div>\n\n                    \n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <button type=\"button\"  id=\"btnReadId\" class=\"btn btn-info btn-block\">Lees E-Id</button>\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-sm-6 col-md-6\">\n                            <div class=\"form-group\">\n                                <input type=\"submit\" value=\"Register\" class=\"btn btn-info btn-block\">\n                            </div>\n                        </div>\n                    </div>\n                    \n                    \n                \n                </form>\n            \n            </div>\n            \n            \n            \n\n            <div class=\"footer\">\n                <p> IDLog team</p>\n            </div>\n        </div>\n        <div id=\"map-canvas\"></div>\n        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n        <script>\n            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n            e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n            e.src='//www.google-analytics.com/analytics.js';\n            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n            ga('create','UA-XXXXX-X');ga('send','pageview');\n        </script>\n        <!-- build:js scripts/vendor.js -->\n        <!-- bower:js -->\n        <script src=\"/bower_components/jquery/dist/jquery.js\"></script>\n        <!-- endbower -->\n        <!-- endbuild -->\n        <!-- build:js scripts/plugins.js -->\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js\"></script>\n        <script src=\"/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js\"></script>\n        <!-- endbuild -->\n        <!-- build:js scripts/main.js -->\n        <script src=\"scripts/main.js\"></script>\n        <!-- endbuild -->\n        <script src=\"//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true\"></script>\n\n        <script type=\"text/javascript\">\n\n            $(\"#btnReadId\").on('click', function(){\n                var openedWindow = window.open(\"https://idlog.be:9080/eid.html\");\n                window.addEventListener(\"message\", function receiveMessage(event){\n                  if (event.origin !== \"http://idlog.be:9000/\")\n                    if (event.data){\n                        $('#firstName').val(event.data.firstName);\n                        $('#name').val(event.data.name);\n                        $('#middleName').val(event.data.middleName);\n                        $('#nationalNumber').val(event.data.nationalNumber);\n                        $('#dateOfBirth').val(event.data.dateOfBirth);\n                        $('#placeOfBirth').val(event.data.placeOfBirth);\n                        $('#nationality').val(event.data.nationality);\n                        $('#streetAndNumber').val(event.data.address.streetAndNumber);\n                        $('#zip').val(event.data.address.zip);\n                        $('#municipality').val(event.data.address.municipality);\n                        $('#cardNumber').val(event.data.cardNumber);\n                        $('#cardValidityDateBegin').val(event.data.cardValidityDateBegin);\n                        $('#cardValidityDateEnd').val(event.data.cardValidityDateEnd);\n                    }\n                }, false);\n            });\n            \n            \n            (function() {\n\n                if(!!navigator.geolocation) {\n                \n                    var map;\n                \n                    var mapOptions = {\n                        zoom: 15,\n                        mapTypeId: google.maps.MapTypeId.ROADMAP\n                    };\n                    \n                    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);\n                \n                    navigator.geolocation.getCurrentPosition(function(position) {\n                    \n                        var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);\n                        \n                        var infowindow = new google.maps.InfoWindow({\n                            map: map,\n                            position: geolocate,\n                            content:\n                                '<h1>Location pinned from HTML5 Geolocation!</h1>' +\n                                '<h2>Latitude: ' + position.coords.latitude + '</h2>' +\n                                '<h2>Longitude: ' + position.coords.longitude + '</h2>'\n                        });\n                        \n                        map.setCenter(geolocate);\n                        \n                    });\n                    \n                } else {\n                    document.getElementById('map-canvas').innerHTML = 'No Geolocation Support.';\n                }\n                \n            })();\n        </script>\n        \n    </body>\n</html>",
+			"file": "app/eid_input.html",
+			"file_size": 15237,
+			"file_write_time": 130759398464691667,
+			"settings":
+			{
+				"buffer_size": 14965,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 35.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"high",
+				"WordHighlight: Toggle Enabled"
+			],
+			[
+				"foem",
+				"CodeFormatter: Format Code"
+			],
+			[
+				"Package control",
+				"Package Control: Install Package"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Control: pa",
+				"Package Control: Enable Package"
+			],
+			[
+				"Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: throw"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 348.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Vincent/Documents/Node/Apps/webapp",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/server",
+		"/C/Users/Vincent/Documents/Node/Apps/test"
+	],
+	"file_history":
+	[
+		"/C/Users/Vincent/Documents/Node/Apps/express_generator/app.js",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/app/eid_input.html",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/eid_response.jsp",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/WEB-INF/web.xml",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/eid.html",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/gulpfile.js",
+		"/C/Users/Vincent/Documents/Node/Apps/test/Gruntfile.js",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/package.json",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/bower.json",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/app/eid_popup.html",
+		"/C/Users/Vincent/Documents/Node/Apps/IDLog/Gruntfile.js",
+		"/C/Users/Vincent/Documents/Node/Apps/express_generator/config/express.js",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/example_picture.html",
+		"/C/Users/Vincent/Downloads/eidjavascriptlib18/examples/example_picture.html",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/lib/beid.jnlp",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/lib/beid_java_plugin.jnlp",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/app/login.html",
+		"/C/Users/Vincent/Documents/Node/Apps/express_generator/.bowerrc",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/app/styles/signin.css",
+		"/C/Users/Vincent/AppData/Roaming/Sublime Text 3/Packages/User/Word Highlight.sublime-settings",
+		"/C/Users/Vincent/Documents/Node/Apps/webapp/node_modules/gulp-if/img/condition.svg",
+		"/C/Users/Vincent/Documents/Node/Apps/IDLog/IDLog.sublime-project",
+		"/C/Users/Vincent/AppData/Roaming/Sublime Text 3/Installed Packages/WordHighlight.sublime-package",
+		"/C/idlog/eid-login.jsp",
+		"/C/idlog/eid-auth.jsp",
+		"/C/Users/Vincent/Documents/Development/Projects/Worldcup/schedule.json",
+		"/C/Program Files/Sublime Text 3/changelog.txt",
+		"/C/Users/Vincent/Documents/Vuze Downloads/Heat (1995) [1080p]/Heat.1995.1080p.BRrip.x264.YIFY (2).srt",
+		"/C/Users/Vincent/Downloads/kilo_with_vclick (1)/script/bjiste.html",
+		"/C/Users/Vincent/Downloads/kilo_with_vclick (1)/script/kilo.js",
+		"/C/Users/Vincent/Downloads/kilo_with_vclick (1)/index.html",
+		"/C/Users/Vincent/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Vincent/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"event",
+			"();\n",
+			"addEntry"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "eid.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5548,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1762,
+								1762
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/eid_input.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 14965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13463,
+								13463
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "gulp-webapp.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Vincent\\Documents\\Node\\Apps\\express_generator\\express-generator.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 198.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
