@@ -49,16 +49,17 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/input">Home</a>
+                        <li><a href="/list">Archive</a>
                         </li>                    
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input id='inpSearch' type="text" class="form-control" placeholder="Search">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav">
-                        <li><a href="/login">login/logout</a>
+                        <li><a id='liLogin' href="/login">login/logout</a>
                         </li>
                     </ul>
                 </div>
@@ -206,18 +207,52 @@
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnMbZDkO_5uB23-g0cWodU3KRz5BJwtPY">
+    </script>
+
 
     <script type="text/javascript">
-        $(document).ready(function(){
-            if (sessionStorage.getItem('eidData')){
-                populateForm(sessionStorage.getItem('eidData'));
+        var eids = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace,
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          // url points to a json file that contains an array of country names, see
+          // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+          remote: {
+            url: '/api/eids/'
             }
         });
+
+        // passing in `null` for the `options` arguments will result in the default
+        // options being used
+        $('#inpSearch').typeahead(null, {
+          name: 'eids',
+        display: 'firstName',
+          source: eids
+        });
+        
+        
+        if($.cookie('token')){
+            $("#liLogin").html('Logout');
+            $("#liLogin").on('click',function(e){
+                $.cookie('token',' ');
+            });
+                       
+        }else{
+            $("#liLogin").html('Login');
+        }
+        
+        if (sessionStorage.getItem('eidData')){
+            populateForm(JSON.parse(sessionStorage.getItem('eidData')));
+        }
+        
+        
+      
         
          var eidData = {};
         $("#btnReadId").on('click', function () {
@@ -226,7 +261,7 @@
                 if (event.origin !== "http://www.idlog.be:9000/input"){
                     if (event.data) {
                         eidData = event.data;  
-                        sessionStorage.setItem('eidData',eidData);
+                        sessionStorage.setItem('eidData', JSON.stringify(eidData));
                         populateForm(event.data);
                     }
                 }
@@ -262,7 +297,8 @@
             $('#idPhoto').attr("src", data.photo);
         }
         
-        eidData = {
+        function createData() {
+           return eidData = {
                 firstName: $('#firstName').val(),
                 name : $('#name').val(),
                 middleName : $('#middleName').val(),
@@ -279,7 +315,8 @@
                 cardValidityDateBegin:$('#cardValidityDateBegin').val(),
                 cardValidityDateEnd:$('#cardValidityDateEnd').val(),
                 photo: $('#idPhoto').attr('src')
-        };
+            }
+        }
         
         
         
@@ -290,7 +327,7 @@
                 $.ajax({
                    url: '/api/eids/',
 //                   data:  JSON.stringify(eidData),
-                   data:  eidData,
+                   data:  JSON.stringify(createData()),
                     
                    beforeSend:function(xhr) {
                        if ($.cookie('token')) {
@@ -302,6 +339,7 @@
                       
                    },
                    dataType: 'json',
+                   contentType: 'application/json',
                    success: function(data) {
                       alert(data);
                    },
@@ -317,40 +355,65 @@
 
         
 
-        (function () {
+        (function(){
+            var map;
 
-            if (!!navigator.geolocation) {
+            function initialize() {
+              var mapOptions = {
+                zoom: 6
+              };
+              map = new google.maps.Map(document.getElementById('map-canvas'),
+                  mapOptions);
+            }
+            if (!navigator.geolocation){
+//                output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+                handleNoGeolocation(false);
+                return;
+              }else{
+                  function success(position) {
+                    var pos = new google.maps.LatLng(position.coords.latitude,
+                                                   position.coords.longitude);
 
-                var map;
-
-                var mapOptions = {
-                    zoom: 15,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-
-                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-                navigator.geolocation.getCurrentPosition(function (position) {
-
-                    var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-                    var infowindow = new google.maps.InfoWindow({
+                      var infowindow = new google.maps.InfoWindow({
                         map: map,
-                        position: geolocate,
-                        content: '<h1>Location pinned from HTML5 Geolocation!</h1>' +
-                            '<h2>Latitude: ' + position.coords.latitude + '</h2>' +
-                            '<h2>Longitude: ' + position.coords.longitude + '</h2>'
-                    });
+                        position: pos,
+                        content: 'Location found using HTML5.'
+                      });
 
-                    map.setCenter(geolocate);
+                      map.setCenter(pos);
+                  };
 
-                });
+                  function error() {
+                    handleNoGeolocation(true);
+                  };
 
-            } else {
-                document.getElementById('map-canvas').innerHTML = 'No Geolocation Support.';
+                  
+
+                  navigator.geolocation.getCurrentPosition(success, error);    
+
+                  
+              }
+                
+            
+
+            function handleNoGeolocation(errorFlag) {
+              if (errorFlag) {
+                var content = 'Error: The Geolocation service failed.';
+              } else {
+                var content = 'Error: Your browser doesn\'t support geolocation.';
+              }
+
+              var options = {
+                map: map,
+                position: new google.maps.LatLng(60, 105),
+                content: content
+              };
+
+              var infowindow = new google.maps.InfoWindow(options);
+              map.setCenter(options.position);
             }
 
-        })();
+            google.maps.event.addDomListener(window, 'load', initialize)})();
     </script>
 
 </body>

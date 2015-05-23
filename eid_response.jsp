@@ -18,8 +18,8 @@
                 <link rel="stylesheet" href="/client/styles/main.css">
                 <!-- endbuild -->
                 <!-- build:js scripts/vendor/modernizr.js -->
-                <script src="/bower_components/modernizr/modernizr.js"></script>
-                <script src="/bower_components/jquery/dist/jquery.js"></script>
+                <script src="/client//bower_components/modernizr/modernizr.js"></script>
+                <script src="/client/bower_components/jquery/dist/jquery.js"></script>
                 <!-- endbuild -->
             </head>
 

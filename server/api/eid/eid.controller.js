@@ -37,29 +37,41 @@ function show (req, res) {
 
 // Creates a new eid in the DB.
  function create (req, res) {
-     var query  = Eid.where({ nationalNumber: req.params.nationalNumber });
-     query.findOne(function (err, eid) {
-      if (err){
+     console.log(req.body);
+     Eid.findOne({ 'nationalNumber': req.body.nationalNumber }, function (err, eid) {
+          if (err){
+            return handleError(res, err);
+          }
+         if (!eid) {
+            Eid.create(req.body, function (err, eid) {
+                if (err) {
+                    return handleError(res, err);
+                }
+                return res.json(201, eid);
+            });
+
+        }else{
+          if (eid.name) {
+            var updated = _.merge(eid, req.body);
+            updated.save(function (err) {
+                if (err) {
+                    return handleError(res, err);
+                }
+                return res.json(200, eid);
+            });   
+          }else{
+            Eid.create(req.body, function (err, eid) {
+                if (err) {
+                    return handleError(res, err);
+                }
+                return res.json(201, eid);
+            });
+
+          }
           
-      }
-      if (eid) {
-        var updated = _.merge(eid, req.body);
-        updated.save(function (err) {
-            if (err) {
-                return handleError(res, err);
-            }
-            return res.json(200, eid);
-        });   
-      }else{
-        Eid.create(req.body, function (err, eid) {
-            if (err) {
-                return handleError(res, err);
-            }
-            return res.json(201, eid);
-        });
-    
-      }
-})};
+        }
+    });
+ };
 
 // Updates an existing eid in the DB.
  function update (req, res) {

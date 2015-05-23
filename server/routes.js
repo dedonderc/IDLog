@@ -26,6 +26,10 @@ module.exports = function(app, passport) {
     .get(auth.isAuthenticated(), function(req, res) {
       res.sendfile(app.get('appPath') + '/input.html');
     });
+    app.route('/list')
+    .get(auth.isAuthenticated(), function(req, res) {
+      res.sendfile(app.get('appPath') + '/eid_list.html');
+    });
     
 //     app.route('/input')
 //    .get(auth.isAuthenticated(),function(req, res) {
