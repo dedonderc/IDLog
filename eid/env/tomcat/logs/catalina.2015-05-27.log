@@ -1,0 +1,38 @@
+May 27, 2015 8:07:07 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-9080"]
+May 27, 2015 8:07:07 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+May 27, 2015 8:07:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+May 27, 2015 8:07:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+May 27, 2015 8:07:08 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-9080"]
+May 27, 2015 8:07:08 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-9080"]
+May 27, 2015 8:15:55 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-9080"]
+May 27, 2015 8:15:55 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 646 ms
+May 27, 2015 8:15:56 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+May 27, 2015 8:15:56 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.25
+May 27, 2015 8:15:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\docs
+May 27, 2015 8:15:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\examples
+May 27, 2015 8:15:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+May 27, 2015 8:15:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+May 27, 2015 8:15:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@1f1cf9')
+May 27, 2015 8:15:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\host-manager
+May 27, 2015 8:15:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\manager
+May 27, 2015 8:15:56 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-9080"]
+May 27, 2015 8:15:56 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 499 ms

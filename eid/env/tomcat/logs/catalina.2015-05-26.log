@@ -1,0 +1,138 @@
+May 26, 2015 8:10:15 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:10:15 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 901 ms
+May 26, 2015 8:10:15 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+May 26, 2015 8:10:15 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.25
+May 26, 2015 8:10:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\docs
+May 26, 2015 8:10:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\examples
+May 26, 2015 8:10:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+May 26, 2015 8:10:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+May 26, 2015 8:10:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@1f1cf9')
+May 26, 2015 8:10:17 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\host-manager
+May 26, 2015 8:10:17 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\manager
+May 26, 2015 8:10:17 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:10:17 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1538 ms
+May 26, 2015 8:11:11 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [AppletServiceServlet] in context with path [] threw exception
+java.lang.RuntimeException: expected a protocol start message
+	at be.fedict.eid.applet.shared.protocol.ProtocolStateMachine.checkRequestMessage(ProtocolStateMachine.java:121)
+	at be.fedict.eid.applet.service.AppletServiceServlet.doPost(AppletServiceServlet.java:299)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+May 26, 2015 8:11:55 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:11:56 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 630 ms
+May 26, 2015 8:11:56 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+May 26, 2015 8:11:56 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.25
+May 26, 2015 8:11:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\docs
+May 26, 2015 8:11:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\examples
+May 26, 2015 8:11:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+May 26, 2015 8:11:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+May 26, 2015 8:11:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@1cc9008')
+May 26, 2015 8:11:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\host-manager
+May 26, 2015 8:11:56 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\manager
+May 26, 2015 8:11:56 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:11:56 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 469 ms
+May 26, 2015 8:12:49 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [AppletServiceServlet] in context with path [] threw exception
+java.lang.RuntimeException: expected a protocol start message
+	at be.fedict.eid.applet.shared.protocol.ProtocolStateMachine.checkRequestMessage(ProtocolStateMachine.java:121)
+	at be.fedict.eid.applet.service.AppletServiceServlet.doPost(AppletServiceServlet.java:299)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+May 26, 2015 8:18:08 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:18:08 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+May 26, 2015 8:18:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+May 26, 2015 8:18:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+May 26, 2015 8:18:08 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:18:08 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:18:13 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:18:13 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 699 ms
+May 26, 2015 8:18:13 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+May 26, 2015 8:18:13 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.25
+May 26, 2015 8:18:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\docs
+May 26, 2015 8:18:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\examples
+May 26, 2015 8:18:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+May 26, 2015 8:18:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+May 26, 2015 8:18:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@17ca589')
+May 26, 2015 8:18:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\host-manager
+May 26, 2015 8:18:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Vincent\Documents\Node\Apps\webapp\eid\env\tomcat\webapps\manager
+May 26, 2015 8:18:14 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-9080"]
+May 26, 2015 8:18:14 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 575 ms

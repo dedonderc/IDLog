@@ -12,11 +12,12 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="../bower_components/datatables/media/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="../bower_components/datatables/media/css/jquery.dataTables_themeroller.css">
-    <link rel="stylesheet" href="../bower_components/bootstrap-modal/css/bootstrap-modal.css">
-    <link rel="stylesheet" href="../bower_components/bootstrap-modal/css/bootstrap-modal-bs3patch.css    ">
+<!--    <link rel="stylesheet" href="styles/main.css">-->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="/bower_components/datatables/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="/bower_components/datatables/media/css/jquery.dataTables_themeroller.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap-modal/css/bootstrap-modal.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap-modal/css/bootstrap-modal-bs3patch.css">
     <style>
         html,
         body,
@@ -25,6 +26,48 @@
             margin: 0px;
             padding: 0px
         }
+        .tt-query {
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .tt-hint {
+            color: #999
+        }
+        .tt-menu {
+            width: 422px;
+            margin: 12px 0;
+            padding: 8px 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        }
+        .tt-suggestion {
+            padding: 3px 20px;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        .tt-suggestion:hover {
+            cursor: pointer;
+            
+            color: #fff;
+            background-color: #0097cf;
+        }
+        .tt-suggestion.tt-cursor {
+            color: #fff;
+            background-color: #0097cf;
+        }
+        .tt-suggestion p {
+            margin: 0;
+        }
+        
+        
     </style>
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
@@ -53,17 +96,17 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/input">Home</a>
-                        <li><a href="/list">Archive</a>
-                        </li>                    
+                            <li><a href="/list">Archive</a>
+                            </li>
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input id="inpSearch" type="text" class="form-control" placeholder="Search">
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav">
-                        <li><a href="/login">login/logout</a>
+                        <li><a id="liLogin" href="/login">login/logout</a>
                         </li>
                     </ul>
                 </div>
@@ -71,11 +114,11 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-        
+
         <div class="row">
             <table id="example" class="display" cellspacing="0" width="100%">
-                
-                
+
+
                 <thead>
                     <tr>
                         <th>Firstname</th>
@@ -84,16 +127,121 @@
                         <th>Date of birth</th>
                         <th>Nationality</th>
                         <th>Adress</th>
+                        <th></th>
+                
                     </tr>
                 </thead>
 
-            
+
             </table>
-            
+
         </div>
         <div class="footer">
             <p>IDLog team</p>
         </div>
+    </div>
+    
+    <div id="responsive" class="modal fade" tabindex="-1" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title"></h4>
+            <div class="jumbotron">
+            <div class="">
+                <img class="center-block img-circle" id="idPhoto" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ1LjUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 140px; height: 140px;">
+            </div>
+        </div>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <form role="form" id='eidForm' method="post" action="/">
+                    <div class="row" style="display: none;">
+                        <input type="text" name="id" id="id" class="form-control input-sm" placeholder="id">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="firstName" id="firstName" class="form-control input-sm" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="middleName" id="middleName" class="form-control input-sm" placeholder="Middle Name">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="nationality" id="nationality" class="form-control input-sm" placeholder="Nationality">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="nationalNumber" id="nationalNumber" class="form-control input-sm" placeholder="National number">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="cardNumber" id="cardNumber" class="form-control input-sm" placeholder="Card number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="placeOfBirth" id="placeOfBirth" class="form-control input-sm" placeholder="Place of birth">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="dateOfBirth" id="dateOfBirth" class="form-control input-sm" placeholder="Date of birth">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="streetAndNumber" id="streetAndNumber" class="form-control input-sm" placeholder="Street and number">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="zip" id="zip" class="form-control input-sm" placeholder="Zip code">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <input type="text" name="municipality" id="municipality" class="form-control input-sm" placeholder="Municipality">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input disabled="true" type="text" name="cardValidityDateBegin" id="cardValidityDateBegin" class="form-control input-sm" placeholder="Card validity begin date">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input disabled="true" type="text" name="cardValidityDateEnd" id="cardValidityDateEnd" class="form-control input-sm" placeholder="Card validity end date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                        <button type="submit"  id="btnOpslaan" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        
     </div>
     <div id="map-canvas"></div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -115,16 +263,19 @@
     </script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="../bower_components/modernizr/modernizr.js"></script>
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/json3/lib/json3.js"></script>
-    <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
-    <script src="../bower_components/bootstrap-modal/js/bootstrap-modal.js"></script>
-    <script src="../bower_components/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
-    <script src="../bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/json3/lib/json3.js"></script>
+    <script src="/bower_components/jquery.cookie/jquery.cookie.js"></script>   
+    <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="/bower_components/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+    <script src="/bower_components/bootstrap-modal/js/bootstrap-modal.js"></script>
+        <script src="/bower_components/typeahead.js/dist/typeahead.bundle.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js scripts/plugins.js -->
+<!--
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
@@ -137,80 +288,154 @@
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+
+-->
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
+<!--    <script src="scripts/main.js"></script>-->
     <!-- endbuild -->
 
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            
-        } );
-        
-     
-        
-            $.ajax({
-               url: '/api/eids/',
-               beforeSend:function(xhr) {
-                   if ($.cookie('token')) {
-                      xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('token'));
-                    }
-                },
-               error: function() {
+        $(document).ready(function () {
 
-               },
-               dataType: 'json',
-               contentType: 'application/json',
-               success: function(data) {
-                 $('#example').dataTable( {
-                    data:data,
-                    "columns": [
-                        { data: "firstName" },
-                        { data: "name" },
-                        { data: "nationalNumber" },
-                        { data: "dateOfBirth" },
-                        { data: "nationality" },
-                        { data: "address.streetAndNumber" }
-                    ]
-                });
-               },
-               type: 'GET'
+        });
+        var eids = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            // url points to a json file that contains an array of country names, see
+            // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+             prefetch: '/api/eids'
+               
+        });
+
+         // passing in `null` for the `options` arguments will result in the default
+         // options being used
+        $('#inpSearch').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1,
+
+        }, {
+            name: 'eids',
+            display: 'firstName',
+            source: eids
+        });
+        if ($.cookie('token')) {
+            $("#liLogin").html('Logout');
+            $("#liLogin").on('click', function (e) {
+                $.cookie('token', ' ');
             });
 
+        } else {
+            $("#liLogin").html('Login');
+        }
+        getTableData();
+
+
+        function getTableData() {
+            $.ajax({
+                url: '/api/eids/',
+                beforeSend: function (xhr) {
+                    if ($.cookie('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('token'));
+                    }
+                },
+                error: function () {
+
+                },
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data) {
+                    renderTable(data);
+                },
+                type: 'GET'
+            });
+        }
+
         
-//        if (sessionStorage.getItem('eidData')){
-//            populateForm(JSON.parse(sessionStorage.getItem('eidData')));
-//        }
-//      
-//        
-//         var eidData = {};
-//        $("#btnReadId").on('click', function () {
-//            var openedWindow = window.open("https://www.idlog.be:9080/eid.html");
-//            window.addEventListener("message", function receiveMessage(event) {
-//                if (event.origin !== "http://www.idlog.be:9000/input"){
-//                    if (event.data) {
-//                        eidData = event.data;  
-//                        sessionStorage.setItem('eidData', JSON.stringify(eidData));
-//                        populateForm(event.data);
-//                    }
-//                }
-//            }, false);
-//        });
-//        function getParameterByName(name) {
-//            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-//            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-//                results = regex.exec(location.search);
-//            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-//        }
-//        
-//        var access_token = getParameterByName('access_token');
-//        if (access_token){
-//             document.cookie="token=" + access_token;
-////            $.cookie('token',access_token);
-//        }
+        function updateEidData() {
+            $.ajax({
+                url: '/api/eids/',
+                beforeSend: function (xhr) {
+                    if ($.cookie('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('token'));
+                    }
+                },
+                error: function () {
+
+                },
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data) {
+                    renderTable(data);
+                },
+                type: 'POST'
+            });
+        }
+
+
+        function renderTable(data) {
+            var dTable = "";
+            if (dTable){
+                dTable.destroy();
+            }
+            dTable = $('#example').dataTable({
+                "data": data,
+                "columns": [
+                    {
+                        "data": "firstName"
+                    },
+                    {
+                        "data": "name"
+                    },
+                    {
+                        "data": "nationalNumber"
+                    },
+                    {
+                        "data": "dateOfBirth"
+                    },
+                    {
+                        "data": "nationality"
+                    },
+                    {
+                        "data": "address.streetAndNumber"
+                    },
+                    {
+                        "data": "_id",
+                        'render': function (data, type, full, meta) {
+                            return '<button type="button" class="btn btn-default rowBtn" aria-label="Left Align" onclick="showDetail(this)" value="' + data + '"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>'
+                        }
+                    },
+
+                ]
+                
+            });
+        }
         
-        function populateForm(data){
+        function showDetail(elmt){
+            $.ajax({
+                url: '/api/eids/' + elmt.value,
+                beforeSend: function (xhr) {
+                    if ($.cookie('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('token'));
+                    }
+                },
+                error: function () {
+
+                },
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data) {
+                    populateForm(data);
+                    $('#responsive').modal('show')
+                },
+                type: 'GET'
+            });
+        }
+
+        function populateForm(data) {
+            $('#id').val(data._id);
             $('#firstName').val(data.firstName);
             $('#name').val(data.name);
             $('#middleName').val(data.middleName);
@@ -227,59 +452,59 @@
             $('#idPhoto').attr("src", data.photo);
         }
         
-//        eidData = {
-//                firstName: $('#firstName').val(),
-//                name : $('#name').val(),
-//                middleName : $('#middleName').val(),
-//                nationalNumber: $('#nationalNumber').val(),
-//                dateOfBirth: $('#dateOfBirth').val(),
-//                placeOfBirth: $('#placeOfBirth').val(),
-//                nationality:$('#nationality').val(),
-//                address: { 
-//                    streetAndNumber:$('#streetAndNumber').val(),
-//                    zip:$('#zip').val(),
-//                    municipality:$('#municipality').val()
-//                },
-//                cardNumber:$('#cardNumber').val(),
-//                cardValidityDateBegin:$('#cardValidityDateBegin').val(),
-//                cardValidityDateEnd:$('#cardValidityDateEnd').val(),
-//                photo: $('#idPhoto').attr('src')
-//        };
-//        
-//        
-//        
-//        
-//        $("#eidForm").on('submit',function(event){
-//            event.preventDefault();
-//            if ( $("#eidForm").serialize()){
-//                $.ajax({
-//                   url: '/api/eids/',
-////                   data:  JSON.stringify(eidData),
+        function createData() {
+           return eidData = {
+                firstName: $('#firstName').val(),
+                name : $('#name').val(),
+                middleName : $('#middleName').val(),
+                nationalNumber: $('#nationalNumber').val(),
+                dateOfBirth: $('#dateOfBirth').val(),
+                placeOfBirth: $('#placeOfBirth').val(),
+                nationality:$('#nationality').val(),
+                address: { 
+                    streetAndNumber:$('#streetAndNumber').val(),
+                    zip:$('#zip').val(),
+                    municipality:$('#municipality').val()
+                },
+                cardNumber:$('#cardNumber').val(),
+                cardValidityDateBegin:$('#cardValidityDateBegin').val(),
+                cardValidityDateEnd:$('#cardValidityDateEnd').val(),
+                photo: $('#idPhoto').attr('src')
+            }
+        }
+        
+        $("#eidForm").on('submit',function(event){
+            event.preventDefault();
+            if ( $("#eidForm").serialize()){
+                $.ajax({
+                   url: '/api/eids/' + $('#id').val(),
 //                   data:  JSON.stringify(eidData),
-//                    
-//                   beforeSend:function(xhr) {
-//                       if ($.cookie('token')) {
-//                          xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('token'));
-//                        }
-//                    },
-////                    headers: {'Authorization': 'Bearer ' + access_token},
-//                   error: function() {
-//                      
-//                   },
-//                   dataType: 'json',
-//                   contentType: 'application/json',
-//                   success: function(data) {
-//                      alert(data);
-//                   },
-//                   type: 'POST'
-//                });
-//                
-//                
-//            }else{
-//                
-//            }
-//        
-//        });
+                   data:  JSON.stringify(createData()),
+                    cache: false,
+                    
+                   beforeSend:function(xhr) {
+                       if ($.cookie('token')) {
+                          xhr.setRequestHeader('Authorization', 'Bearer ' + $.cookie('token'));
+                        }
+                    },
+//                    headers: {'Authorization': 'Bearer ' + access_token},
+                   error: function() {
+                      
+                   },
+                   dataType: 'json',
+                   contentType: 'application/json',
+                   success: function(data) {
+                     location.reload();
+                   },
+                   type: 'PUT'
+                });
+                
+                
+            }else{
+                
+            }
+        
+        });
 
 
     </script>

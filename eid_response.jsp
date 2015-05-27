@@ -15,15 +15,20 @@
                 <!-- endbower -->
                 <!-- endbuild -->
                 <!-- build:css styles/main.css -->
-                <link rel="stylesheet" href="/client/styles/main.css">
+                <link rel="stylesheet" href="client/styles/bootstrap.css">
                 <!-- endbuild -->
                 <!-- build:js scripts/vendor/modernizr.js -->
                 <script src="/client//bower_components/modernizr/modernizr.js"></script>
                 <script src="/client/bower_components/jquery/dist/jquery.js"></script>
-                <!-- endbuild -->
+                <script src="/client/scripts/bootstrap.js"></script>
+                <script src="client/bower_components/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+                <script src="client/bower_components/bootstrap-modal/js/bootstrap-modal.js"></script>
+                <script src="client/bower_components/json3/lib/json3.js"></script>               
+                
             </head>
 
             <body>
+                <div class="container">
                 <div class="row">
                     <form role="form">
                         <div class="row">
@@ -115,6 +120,7 @@
                             </div>
                         </div>
                     </form>
+                </div>
                 </div>
         
                 <!--[if lt IE 10]>
