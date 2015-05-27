@@ -11,6 +11,9 @@
 
 var _ = require('lodash');
 var Eid = require('./eid.model');
+var morgan = require('morgan');
+
+morgan.token('body', function(req, res){ return  req.params.id; })
 
 // Get list of eids
 function index (req, res) {
@@ -24,7 +27,8 @@ function index (req, res) {
 
 // Get a single eid
 function show (req, res) {
-    Eid.findById(req.params.id, function (err, eid) {
+    morgan(':body :method :url :response-time');
+     Eid.findById(req.params.id, function (err, eid) {
         if (err) {
             return handleError(res, err);
         }
@@ -37,7 +41,6 @@ function show (req, res) {
 
 // Creates a new eid in the DB.
  function create (req, res) {
-     console.log(req.body);
      Eid.findOne({ 'nationalNumber': req.body.nationalNumber }, function (err, eid) {
           if (err){
             return handleError(res, err);
@@ -78,7 +81,7 @@ function show (req, res) {
 //    if (req.body._id) {
 //        delete req.body._id;
 //    }
-    Eid.findById(req.body._id, function (err, eid) {
+    Eid.findById(req.params.id, function (err, eid) {
         if (err) {
             return handleError(res, err);
         }

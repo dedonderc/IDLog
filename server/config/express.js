@@ -35,7 +35,7 @@ module.exports = function(app) {
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
     
- morgan.token('body', function(req, res){ return req.body + req.query.access_token; })
+ morgan.token('body', function(req, res){ return  req.params; })
 // morgan.token('body', function(req, res){ return req.body; })
     
   if ('production' === env) {
